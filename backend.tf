@@ -4,7 +4,7 @@ terraform {
   backend "s3" {
     bucket                  = "xyz-tfm-state"
     region                  = "eu-west-1"
-    key                     = "cd-api-cicd.tfstate"
+    key                     = "cs-api-cicd.tfstate"
     encrypt                 = "true"
     shared_credentials_file = "~/.aws/credentials"
     profile                 = "default"
