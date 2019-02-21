@@ -1,1 +1,1 @@
-terraform-docs --sort-inputs-by-required markdown table ./
+terraform-docs --sort-inputs-by-required markdown table $1
