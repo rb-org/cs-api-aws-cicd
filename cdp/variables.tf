@@ -13,7 +13,7 @@ variable "github_org" {}
 variable "github_repo" {}
 
 variable "github_repo_branch" {
-  default = "^master$"
+  default = "master"
 }
 
 variable "github_token" {}

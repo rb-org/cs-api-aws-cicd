@@ -21,22 +21,26 @@ resource "aws_codebuild_project" "cs_api" {
 
     environment_variable {
       "name"  = "db_user"
-      "value" = "${data.aws_ssm_parameter.cs_api_user_name.value}"
+      "value" = "${data.aws_ssm_parameter.cs_api_user_name.name}"
+      "type"  = "PARAMETER_STORE"
     }
 
     environment_variable {
       "name"  = "db_password"
-      "value" = "${data.aws_ssm_parameter.cs_api_user_pass.value}"
+      "value" = "${data.aws_ssm_parameter.cs_api_user_pass.name}"
+      "type"  = "PARAMETER_STORE"
     }
 
     environment_variable {
       "name"  = "db_address"
-      "value" = "${data.aws_ssm_parameter.db_endpoint.value}"
+      "value" = "${data.aws_ssm_parameter.db_endpoint.name}"
+      "type"  = "PARAMETER_STORE"
     }
 
     environment_variable {
       "name"  = "db_database"
-      "value" = "${data.aws_ssm_parameter.db_name.value}"
+      "value" = "${data.aws_ssm_parameter.db_name.name}"
+      "type"  = "PARAMETER_STORE"
     }
 
     environment_variable {
