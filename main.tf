@@ -24,6 +24,9 @@ module "cdp" {
   ssm_cs_api_user_name = "${data.terraform_remote_state.cs_api_rds.cs_api_db_user_name}"
   ssm_cs_api_user_pass = "${data.terraform_remote_state.cs_api_rds.cs_api_db_user_pass}"
 
+  # ECR
+  cs_api_repository_url = "${data.terraform_remote_state.cs_api_ecr.cs_api_repository_url}"
+
   # IAM
   codepipeline_role_arn = "${module.iam.codepipeline_role_arn}"
   codebuild_role_arn    = "${module.iam.codebuild_role_arn}"

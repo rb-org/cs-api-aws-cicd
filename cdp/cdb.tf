@@ -48,6 +48,16 @@ resource "aws_codebuild_project" "cs_api" {
       "name"  = "db_type"
       "value" = "${var.db_engine}"
     }
+
+    environment_variable {
+      "name"  = "image_repo_url"
+      "value" = "${var.cs_api_repository_url}"
+    }
+
+    environment_variable {
+      "name"  = "image_version"
+      "value" = "${var.image_version}"
+    }
   }
 
   source {

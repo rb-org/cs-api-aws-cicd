@@ -41,3 +41,10 @@ variable "cdb_image" {
 variable "cdb_image_type" {
   default = "LINUX_CONTAINER"
 }
+
+# ECR
+variable "cs_api_repository_url" {}
+
+variable "image_version" {
+  default = "latest"
+}
