@@ -52,3 +52,6 @@ variable "cs_api_repository_url" {}
 variable "image_version" {
   default = "latest"
 }
+
+# CS API
+variable "app_name" {}

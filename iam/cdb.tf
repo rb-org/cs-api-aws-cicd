@@ -66,7 +66,16 @@ resource "aws_iam_role_policy" "codebuild_policy" {
       "Resource": [
           "${var.ecr_arn}"
         ]
-    }
+    },
+    {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:Describe*",
+                "ssm:Get*",
+                "ssm:List*"
+            ],
+            "Resource": "*"
+        }
   ]
 }
 EOF

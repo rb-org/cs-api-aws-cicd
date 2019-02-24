@@ -32,3 +32,8 @@ variable "github_repo" {
 }
 
 variable "github_token" {}
+
+# CS API
+variable "app_name" {
+  default = "cs-api"
+}
