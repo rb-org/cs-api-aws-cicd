@@ -14,10 +14,10 @@ resource "aws_codebuild_project" "cs_api" {
   }
 
   environment {
-    compute_type    = "BUILD_GENERAL1_SMALL"
-    image           = "aws/codebuild/python:3.6.5"
-    type            = "LINUX_CONTAINER"
-    privileged_mode = true                         # To be able to run a container within a container
+    compute_type    = "${var.cdb_compute}"
+    image           = "${var.cdb_image}"
+    type            = "${var.cdb_image_type}"
+    privileged_mode = true                    # To be able to run a container within a container
 
     environment_variable {
       "name"  = "db_user"

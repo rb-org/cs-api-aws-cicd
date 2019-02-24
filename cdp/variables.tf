@@ -13,7 +13,7 @@ variable "github_org" {}
 variable "github_repo" {}
 
 variable "github_repo_branch" {
-  default = "master"
+  default = "^master$"
 }
 
 variable "github_token" {}
@@ -27,3 +27,17 @@ variable "ssm_db_name" {}
 variable "ssm_cs_api_user_name" {}
 
 variable "ssm_cs_api_user_pass" {}
+
+# Codebuild
+
+variable "cdb_compute" {
+  default = "BUILD_GENERAL1_SMALL"
+}
+
+variable "cdb_image" {
+  default = "aws/codebuild/python:3.6.5"
+}
+
+variable "cdb_image_type" {
+  default = "LINUX_CONTAINER"
+}

@@ -21,10 +21,11 @@ resource "aws_codepipeline" "cs_api" {
       output_artifacts = ["cs-api-code"]
 
       configuration = {
-        Owner      = "${var.github_org}"
-        Repo       = "${var.github_repo}"
-        Branch     = "${var.github_repo_branch}"
-        OAuthToken = "${var.github_token}"
+        Owner                = "${var.github_org}"
+        Repo                 = "${var.github_repo}"
+        Branch               = "${var.github_repo_branch}"
+        OAuthToken           = "${var.github_token}"
+        PollForSourceChanges = false
       }
     }
   }
