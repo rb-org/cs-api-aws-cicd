@@ -10,12 +10,16 @@ module "s3" {
 module "iam" {
   source = "./iam"
 
+  app_name    = "${var.app_name}"
   s3_cicd_arn = "${module.s3.cicd_arn}"
   ecr_arn     = "${data.terraform_remote_state.cs_api_ecr.cs_api_ecr_arn}"
 }
 
 module "cdp" {
   source = "./cdp"
+
+  # CS API
+  app_name = "${var.app_name}"
 
   # RDS 
   db_engine            = "${data.terraform_remote_state.cs_api_rds.db_engine}"

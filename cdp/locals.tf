@@ -1,8 +1,8 @@
 locals {
   name_prefix      = "${terraform.workspace}"
-  cdp_name         = "${local.name_prefix}-cdp-cs-api"
-  cdp_webhook_name = "${local.name_prefix}-cdp-webhook-cs-api"
-  cdb_project_name = "${local.name_prefix}-cdb-cs-api"
+  cdp_name         = "${local.name_prefix}-cdp-${var.app_name}"
+  cdp_webhook_name = "${local.name_prefix}-cdp-webhook-${var.app_name}"
+  cdb_project_name = "${local.name_prefix}-cdb-${var.app_name}"
 
   db_ports = {
     mysql = "3306"
