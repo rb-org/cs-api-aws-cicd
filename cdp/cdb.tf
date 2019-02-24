@@ -58,6 +58,11 @@ resource "aws_codebuild_project" "cs_api" {
       "name"  = "image_version"
       "value" = "${var.image_version}"
     }
+
+    environment_variable {
+      "name"  = "cs_api_port"
+      "value" = "${var.cs_api_port}"
+    }
   }
 
   source {

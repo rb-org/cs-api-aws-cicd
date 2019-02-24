@@ -42,6 +42,10 @@ variable "cdb_image_type" {
   default = "LINUX_CONTAINER"
 }
 
+variable "cs_api_port" {
+  default = 5000
+}
+
 # ECR
 variable "cs_api_repository_url" {}
 
