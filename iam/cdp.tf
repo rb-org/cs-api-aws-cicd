@@ -40,7 +40,8 @@ resource "aws_iam_role_policy" "codepipeline_policy" {
       "Action": [
         "codebuild:BatchGetBuilds",
         "codebuild:StartBuild",
-        "codebuild:AssumeRole"
+        "codebuild:AssumeRole",
+        "cloudformation:*"
       ],
       "Resource": "*"
     },    

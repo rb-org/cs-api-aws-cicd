@@ -21,3 +21,14 @@ variable "default_tags" {
 variable "remote_state_s3" {
   default = "xyz-tfm-state"
 }
+
+# Github
+variable "github_org" {
+  default = "rb-org"
+}
+
+variable "github_repo" {
+  default = "cs-api-app"
+}
+
+variable "github_token" {}
