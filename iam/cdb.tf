@@ -61,40 +61,23 @@ resource "aws_iam_role_policy" "codebuild_policy" {
         "ecr:PutImage",
         "ecr:InitiateLayerUpload",
         "ecr:UploadLayerPart",
-        "ecr:CompleteLayerUpload"
+        "ecr:CompleteLayerUpload",
+        "ecr:GetAuthorizationToken*"
       ],
       "Resource": [
           "${var.ecr_arn}"
         ]
     },
     {
-            "Effect": "Allow",
-            "Action": [
-                "ssm:Describe*",
-                "ssm:Get*",
-                "ssm:List*"
-            ],
-            "Resource": "*"
-        }
+      "Effect": "Allow",
+      "Action": [
+          "ssm:Describe*",
+          "ssm:Get*",
+          "ssm:List*"
+      ],
+      "Resource": "/${terraform.workspace}/${var.app_name}/*"
+    }
   ]
 }
 EOF
 }
-
-# ,
-#     {
-#       "Effect": "Allow",
-#       "Action": [
-# #         "ecr:GetDownloadUrlForLayer",
-#         "ecr:BatchGetImage",
-#         "ecr:BatchCheckLayerAvailability",
-#         "ecr:PutImage",
-#         "ecr:InitiateLayerUpload",
-#         "ecr:UploadLayerPart",
-#         "ecr:CompleteLayerUpload",
-#       ],
-#       "Resource": [
-#         "${var.ecr_arn}"
-#       ] 
-#     }
-
