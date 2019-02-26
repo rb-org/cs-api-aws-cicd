@@ -10,7 +10,7 @@ resource "aws_codebuild_project" "cs_api" {
 
   cache {
     type     = "S3"
-    location = "${var.s3_cicd_arn}"
+    location = "${var.s3_cicd_bucket}/cache"
   }
 
   environment {

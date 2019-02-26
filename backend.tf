@@ -40,3 +40,13 @@ data "terraform_remote_state" "cs_api_rds" {
     key    = "env:/${terraform.workspace}/cs-api-rds.tfstate"
   }
 }
+
+data "terraform_remote_state" "cs_api_eks" {
+  backend = "s3"
+
+  config {
+    bucket = "${var.remote_state_s3}"
+    region = "eu-west-1"
+    key    = "env:/${terraform.workspace}/cs-api-eks.tfstate"
+  }
+}

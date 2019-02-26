@@ -48,9 +48,16 @@ resource "aws_iam_role_policy" "codebuild_policy" {
     {
       "Effect": "Allow",
       "Action": [
-        "eks:Describe*"
+        "ecr:GetAuthorizationToken*"
       ],
       "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "eks:*"
+      ],
+      "Resource": "${var.eks_cluster_arn}"
     },
     {
       "Effect": "Allow",
@@ -61,8 +68,7 @@ resource "aws_iam_role_policy" "codebuild_policy" {
         "ecr:PutImage",
         "ecr:InitiateLayerUpload",
         "ecr:UploadLayerPart",
-        "ecr:CompleteLayerUpload",
-        "ecr:GetAuthorizationToken*"
+        "ecr:CompleteLayerUpload"
       ],
       "Resource": [
           "${var.ecr_arn}"
