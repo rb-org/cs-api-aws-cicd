@@ -70,7 +70,7 @@ resource "aws_codebuild_project" "cs_api" {
 
     environment_variable {
       "name"  = "kubeconfig"
-      "value" = "${data.aws_ssm_parameter.kubeconfig}"
+      "value" = "${data.aws_ssm_parameter.kubeconfig.name}"
       "type"  = "PARAMETER_STORE"
     }
   }
