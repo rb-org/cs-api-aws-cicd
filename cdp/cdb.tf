@@ -74,8 +74,13 @@ resource "aws_codebuild_project" "cs_api" {
     }
 
     environment_variable {
-      "name"  = "aws_region"
-      "value" = "${var.region}"
+      "name"  = "cluster_region"
+      "value" = "${var.cluster_region}"
+    }
+
+    environment_variable {
+      "name"  = "cluster_name"
+      "value" = "${var.cluster_name}"
     }
   }
 

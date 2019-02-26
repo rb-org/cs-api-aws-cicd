@@ -21,8 +21,6 @@ module "iam" {
 module "cdp" {
   source = "./cdp"
 
-  region = "${data.aws_region.current.name}"
-
   # CS API
   app_name = "${var.app_name}"
 
@@ -54,4 +52,6 @@ module "cdp" {
 
   # EKS
   kubeconfig_path = "${data.terraform_remote_state.cs_api_eks.kubeconfig_path}"
+  cluster_region  = "${data.terraform_remote_state.cs_api_eks.eks_cluster_region}"
+  cluster_name    = "${data.terraform_remote_state.cs_api_eks.eks_cluster_name}"
 }

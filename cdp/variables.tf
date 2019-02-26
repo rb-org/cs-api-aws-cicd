@@ -60,3 +60,6 @@ variable "app_name" {}
 
 # EKS 
 variable "kubeconfig_path" {}
+
+variable "cluster_region" {}
+variable "cluster_name" {}
