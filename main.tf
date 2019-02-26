@@ -21,6 +21,8 @@ module "iam" {
 module "cdp" {
   source = "./cdp"
 
+  region = "${data.aws_region.current.name}"
+
   # CS API
   app_name = "${var.app_name}"
 

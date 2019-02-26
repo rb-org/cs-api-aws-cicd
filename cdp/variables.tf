@@ -3,6 +3,8 @@ variable "default_tags" {
   type = "map"
 }
 
+variable "region" {}
+
 variable "codepipeline_role_arn" {}
 variable "codebuild_role_arn" {}
 
