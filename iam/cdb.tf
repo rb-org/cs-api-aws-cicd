@@ -55,7 +55,7 @@ resource "aws_iam_role_policy" "codebuild_policy" {
     {
       "Effect": "Allow",
       "Action": [
-        "eks:*",
+        "eks:*"
       ],
       "Resource": "${var.eks_cluster_arn}"
     },
