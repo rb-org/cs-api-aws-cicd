@@ -67,6 +67,12 @@ resource "aws_codebuild_project" "cs_api" {
       "name"  = "cs_api_port"
       "value" = "${var.cs_api_port}"
     }
+
+    environment_variable {
+      "name"  = "kubeconfig"
+      "value" = "${data.aws_ssm_parameter.kubeconfig.name}"
+      "type"  = "PARAMETER_STORE"
+    }
   }
 
   source {

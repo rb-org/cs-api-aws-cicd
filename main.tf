@@ -49,4 +49,7 @@ module "cdp" {
 
   # Tags
   default_tags = "${var.default_tags}"
+
+  # EKS
+  kubeconfig_path = "${data.terraform_remote_state.cs_api_eks.kubeconfig_path}"
 }

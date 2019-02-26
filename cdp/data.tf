@@ -20,6 +20,11 @@ data "aws_ssm_parameter" "cs_api_user_pass" {
   with_decryption = true
 }
 
+data "aws_ssm_parameter" "kubeconfig" {
+  name            = "${var.kubeconfig_path}"
+  with_decryption = false
+}
+
 resource "random_string" "webhook_secret" {
   length  = 16
   special = true

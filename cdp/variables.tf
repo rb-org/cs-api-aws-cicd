@@ -55,3 +55,6 @@ variable "image_version" {
 
 # CS API
 variable "app_name" {}
+
+# EKS 
+variable "kubeconfig_path" {}
