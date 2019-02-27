@@ -21,7 +21,7 @@ data "aws_ssm_parameter" "cs_api_user_pass" {
 }
 
 data "aws_ssm_parameter" "kubeconfig" {
-  name            = "${var.kubeconfig_path}"
+  name            = "/${var.kubeconfig_path}"
   with_decryption = false
 }
 
