@@ -81,7 +81,10 @@ resource "aws_iam_role_policy" "codebuild_policy" {
           "ssm:Get*",
           "ssm:List*"
       ],
-      "Resource": "arn:aws:ssm:${var.region}:${var.account_id}:parameter/${terraform.workspace}/${var.app_name}/*"
+      "Resource":[
+        "arn:aws:ssm:${var.region}:${var.account_id}:parameter/${terraform.workspace}/${var.app_name}/*",
+        "arn:aws:ssm:${var.region}:${var.account_id}:parameter/${terraform.workspace}/${var.app_name}/*"
+        ]
     }
   ]
 }

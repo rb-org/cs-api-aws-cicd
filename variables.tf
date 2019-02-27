@@ -37,3 +37,6 @@ variable "github_token" {}
 variable "app_name" {
   default = "cs-api"
 }
+
+# Slack
+variable "aws2slack_webhook" {}
