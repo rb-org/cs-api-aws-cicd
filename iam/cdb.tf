@@ -83,7 +83,7 @@ resource "aws_iam_role_policy" "codebuild_policy" {
       ],
       "Resource":[
         "arn:aws:ssm:${var.region}:${var.account_id}:parameter/${terraform.workspace}/${var.app_name}/*",
-        "arn:aws:ssm:${var.region}:${var.account_id}:parameter/${terraform.workspace}/${var.app_name}/*"
+        "arn:aws:ssm:${var.region}:${var.account_id}:parameter/${var.kubeconfig_path}/*"
         ]
     }
   ]
