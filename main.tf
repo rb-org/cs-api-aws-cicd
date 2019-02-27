@@ -16,6 +16,23 @@ module "iam" {
   account_id      = "${data.aws_caller_identity.current.account_id}"
   region          = "${data.aws_region.current.name}"
   eks_cluster_arn = "${data.terraform_remote_state.cs_api_eks.eks_cluster_arn}"
+  kubeconfig_path = "${data.terraform_remote_state.cs_api_eks.kubeconfig_path}"
+}
+
+module "notify" {
+  source = "./notify"
+
+  account_id = "${data.aws_caller_identity.current.account_id}"
+
+  # Codebuild 
+  codebuild_prj_arn  = "${module.cdp.cdb_arn}"
+  codebuild_role_arn = "${module.iam.codebuild_role_arn}"
+
+  # Notifications
+  slack_webhook = "${var.aws2slack_webhook}"
+
+  # Tags
+  default_tags = "${var.default_tags}"
 }
 
 module "cdp" {
