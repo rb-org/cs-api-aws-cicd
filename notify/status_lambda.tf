@@ -8,8 +8,9 @@ resource "aws_lambda_function" "codebuild" {
   role             = "${module.slack_lambda_role.role_arn}"
   handler          = "src/index.handler"
   source_code_hash = "${base64sha256(file("${path.root}/lambda/release.zip"))}"
-  runtime          = "nodejs6.10"
+  runtime          = "nodejs8.10"
   timeout          = 10
+  memory_size      = 256
 
   environment {
     variables = {
